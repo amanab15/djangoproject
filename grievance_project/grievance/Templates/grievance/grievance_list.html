@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grievance List</title>
+</head>
+<body>
+    <h1>Grievances</h1>
+    <a href="{% url 'grievance_create' %}">Create New</a>
+    <ul>
+        {% for g in grievances %}
+        <li>
+            <strong>{{ g.title }}</strong> - {{ g.status }}
+            <a href="{% url 'grievance_update' g.id %}">Edit</a>
+            <a href="{% url 'grievance_delete' g.id %}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
