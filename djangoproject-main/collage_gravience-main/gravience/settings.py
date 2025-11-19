@@ -15,7 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR,'Templates')
-
+ADMIN_REG_CODE = "letmein123"
 
 
 # Quick-start development settings - unsuitable for production
@@ -54,6 +54,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'gravience.urls'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -126,11 +127,15 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# URL to redirect unauthenticated users
-LOGIN_URL = '/login/'  # or use the URL name 'login'
-# Optional: redirect after login
-LOGIN_REDIRECT_URL = '/viewdata/'  # or URL name 'viewdata'
-# Optional: redirect after logout
-LOGOUT_REDIRECT_URL = '/login/'  # or URL name 'login'
+LOGIN_URL = '/login/'  
+LOGIN_REDIRECT_URL = '/viewdata/'  
+LOGOUT_REDIRECT_URL = '/login/'  
+
+# Email Configuration (for Gmail)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'abaththa@gmail.com'        
+EMAIL_HOST_PASSWORD = 'Group@01'      
